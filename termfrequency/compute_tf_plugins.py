@@ -8,7 +8,7 @@ import imp
 def load_plugins():
     """Load the compiled Python plugins specified in the configuration file"""
     config = configparser.ConfigParser()
-    config.read("")
+    config.read("config.ini")
     # either words1.pyc or words2.pyc
     words_plugin = config.get("Plugins", "")
     # either frequencies1.pyc or frequencies2.pyc
