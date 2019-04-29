@@ -1,8 +1,9 @@
-# Reflection by Add Your Name Here
+# Reflection by Mohammad Khan
 
 ## Explain in detail the steps to take to compile and install the plugins
 
-Please provide a response to this question.
+After fixing up `compute_tf_plugins.py`, we ran the shell script file contained in the
+`plugins-src` folder. This script contains several commands. The first command compiles the plugin and the second makes a `plugins` directory that contains the `.pyc` files. These are python configuration files which contain various 
 
 ## What are the benefits associated with adopting the plugin programming style?
 

@@ -2,8 +2,7 @@
 
 import sys
 import configparser
-import imp
-
+import importlib.machinery
 
 def load_plugins():
     """Load the compiled Python plugins specified in the configuration file"""
@@ -17,8 +16,12 @@ def load_plugins():
     global tfwords, tffreqs
     # pylint: disable=no-value-for-parameter
     # pylint: disable=deprecated-method
-    tfwords = imp.load_compiled("tfwords", words_plugin)
-    tffreqs = imp.load_compiled("tffreqs", frequencies_plugin)
+    tfwords = importlib.machinery.SourcelessFileLoader(
+        "tfwords", words_plugin
+    ).load_module()
+    tffreqs = importlib.machinery.SourcelessFileLoader(
+        "tffreqs", frequencies_plugin
+    ).load_module()
 
 
 if __name__ == "__main__":
