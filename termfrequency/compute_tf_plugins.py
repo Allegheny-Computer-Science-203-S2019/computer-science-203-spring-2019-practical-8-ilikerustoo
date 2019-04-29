@@ -4,6 +4,7 @@ import sys
 import configparser
 import importlib.machinery
 
+
 def load_plugins():
     """Load the compiled Python plugins specified in the configuration file"""
     config = configparser.ConfigParser()
