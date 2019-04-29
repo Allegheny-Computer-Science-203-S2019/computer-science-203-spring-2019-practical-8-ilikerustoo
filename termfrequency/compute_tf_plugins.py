@@ -10,7 +10,7 @@ def load_plugins():
     config = configparser.ConfigParser()
     config.read("config.ini")
     # either words1.pyc or words2.pyc
-    words_plugin = config.get("Plugins", "")
+    words_plugin = config.get("Plugins", "Words")
     # either frequencies1.pyc or frequencies2.pyc
     frequencies_plugin = config.get("Plugins", "Frequencies")
     # pylint: disable=global-variable-undefined
