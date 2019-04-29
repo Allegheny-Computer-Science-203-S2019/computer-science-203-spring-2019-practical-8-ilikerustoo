@@ -2,30 +2,23 @@
 
 import sys
 import configparser
-import importlib.machinery
+import imp
 
 
 def load_plugins():
     """Load the compiled Python plugins specified in the configuration file"""
     config = configparser.ConfigParser()
-    # TODO: Add the name of the configuration file
     config.read("")
-    # TODO: Add the name of the plugin that will load
     # either words1.pyc or words2.pyc
     words_plugin = config.get("Plugins", "")
-    # TODO: Add the name of the plugin that will load
     # either frequencies1.pyc or frequencies2.pyc
-    frequencies_plugin = config.get("Plugins", "")
+    frequencies_plugin = config.get("Plugins", "Frequencies")
     # pylint: disable=global-variable-undefined
     global tfwords, tffreqs
     # pylint: disable=no-value-for-parameter
     # pylint: disable=deprecated-method
-    tfwords = importlib.machinery.SourcelessFileLoader(
-        "tfwords", words_plugin
-    ).load_module()
-    tffreqs = importlib.machinery.SourcelessFileLoader(
-        "tffreqs", frequencies_plugin
-    ).load_module()
+    tfwords = imp.load_compiled("tfwords", words_plugin)
+    tffreqs = imp.load_compiled("tffreqs", frequencies_plugin)
 
 
 if __name__ == "__main__":
